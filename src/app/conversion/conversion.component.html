@@ -1,0 +1,11 @@
+<div>
+    <label>FROM:</label>
+    <span>{{conversion.fromCurrency.symbol}}</span>    
+    <input [(ngModel)]='conversion.fromCurrency.value'/>
+</div>
+<div>
+    <label>TO:</label>
+    <span>{{conversion.toCurrency.symbol}}</span>
+    <input [(ngModel)]='conversion.toCurrency.value'/>
+</div>
+<input type='button' (click)="onConvet()" value='CONVERT' />

@@ -1,0 +1,5 @@
+<span>{{currentCurrency.value | currency:currentCurrency.symbol:'symbol':'1.2-2'}} equals to:</span>
+<br><br>
+<div *ngFor="let currency of currencies">
+    <span>{{currency.value | currency:currency.symbol:'symbol':'1.2-2'}}</span>
+</div>
