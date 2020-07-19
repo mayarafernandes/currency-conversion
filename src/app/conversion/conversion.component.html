@@ -1,11 +1,17 @@
 <div>
     <label>FROM:</label>
+    <select [(ngModel)]='conversion.fromCurrency.symbol'>
+        <option *ngFor="let symbol of globals.currencySymbols" [ngValue]="symbol">{{symbol}}</option>
+    </select>
     <span>{{conversion.fromCurrency.symbol}}</span>    
     <input [(ngModel)]='conversion.fromCurrency.value'/>
 </div>
 <div>
     <label>TO:</label>
+    <select [(ngModel)]='conversion.toCurrency.symbol'>
+        <option *ngFor="let symbol of globals.currencySymbols" [ngValue]="symbol">{{symbol}}</option>
+    </select>
     <span>{{conversion.toCurrency.symbol}}</span>
-    <input [(ngModel)]='conversion.toCurrency.value'/>
+    <input [ngModel]='conversion.toCurrency.value' disabled/>
 </div>
 <input type='button' (click)="onConvet()" value='CONVERT' />

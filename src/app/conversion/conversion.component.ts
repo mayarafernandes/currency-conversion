@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Conversion } from '../../model/conversion';
+import { Conversion } from 'src/model/conversion';
 import { ConversionService } from '../service/conversion.service'
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-conversion',
@@ -10,7 +11,7 @@ export class ConversionComponent implements OnInit {
   
   conversion: Conversion = new Conversion();
 
-  constructor(private conversionService: ConversionService) { }
+  constructor(private conversionService: ConversionService, public globals: Globals) { }
 
   ngOnInit(): void {        
     this.conversion = {

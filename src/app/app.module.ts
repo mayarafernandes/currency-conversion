@@ -6,6 +6,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CurrenciesComponent } from './currencies/currencies.component';
 import { ConversionComponent } from './conversion/conversion.component';
+import { Globals } from './globals'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { ConversionComponent } from './conversion/conversion.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    Globals
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
