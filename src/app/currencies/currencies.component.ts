@@ -3,6 +3,8 @@ import { Currency } from 'src/model/currency';
 import { Conversion } from 'src/model/conversion';
 import { ConversionService } from '../service/conversion.service';
 import { Globals } from '../globals'
+import { Observable, interval, of, timer } from 'rxjs';
+import { startWith, switchMap, retry, share, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-currencies',
@@ -10,27 +12,27 @@ import { Globals } from '../globals'
 })
 export class CurrenciesComponent implements OnInit {
   
-  currencies: Currency[] = [];
+  currencies: Currency[];  
   lastUpdate: Date;
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<string>()
 
   constructor(private conversionService: ConversionService, public globals: Globals) { }
 
   async ngOnInit(): Promise<void> {
-    let conversion: Conversion = {
-      fromCurrency: this.globals.currentCurrency,
-      toCurrency: new Currency()
-    }
+    this.currencies = [
+        {symbol: 'BRL', value: 49682.96},
+        {symbol: 'USD', value: 9882.96},
+        {symbol: 'EUR', value: 758.96},
+      ]
+    //await this.conversionService.getCurrencies().then(res => this.currencies = res);
+    this.lastUpdate = new Date();
 
-    for (let currencySymbol of this.globals.currencySymbols) {
-      if (currencySymbol == this.globals.currentCurrency.symbol)
-        return;      
-      conversion.toCurrency.symbol = currencySymbol;
-      conversion.toCurrency.value = null;
-      await this.conversionService.convert(conversion).then(message => this.messageEvent.emit(message));
-      this.currencies.push({ symbol: conversion.toCurrency.symbol, value: conversion.toCurrency.value});
-      this.lastUpdate = new Date();
-    }    
+    // interval(5000)
+    //   .pipe<number, Currency[]>(
+    //     startWith(0),
+    //     switchMap<number, Currency[]>(() => this.conversionService.getCurrencies())
+    //   )
+    //   .subscribe(res => this.currencies = res)
   }
 }

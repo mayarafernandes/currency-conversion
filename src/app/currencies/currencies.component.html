@@ -1,7 +1,8 @@
-<span>{{globals.currentCurrency.value | currency:globals.currentCurrency.symbol:'symbol':'1.2-2'}} equals to:</span>
+<span>{{globals.currentCurrency.value | localizedCurrency:globals.currentCurrency.symbol}} {{'equals' | translate}}:</span>
 <br><br>
-<div *ngFor="let currency of currencies">
-    <span>{{currency.value | currency:currency.symbol:'symbol':'1.2-2'}}</span>
+<div *ngFor="let currency of currencies">    
+    <span>{{currency.value | localizedCurrency:currency.symbol}}</span>
 </div>
 <br><br>
-<span>{{lastUpdate}}</span>
+<span class="footer-date">{{'lastUpdated' | translate}}</span>
+<span class="footer-date">{{lastUpdate | localizedDate}}</span>

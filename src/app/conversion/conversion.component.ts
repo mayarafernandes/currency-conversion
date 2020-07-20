@@ -15,8 +15,8 @@ export class ConversionComponent implements OnInit {
 
   ngOnInit(): void {        
     this.conversion = {
-      fromCurrency: { symbol: 'BTC', value: 10 },
-      toCurrency: { symbol: 'BRL' }
+      fromCurrency: { symbol: this.globals.currentCurrency.symbol, value: this.globals.currentCurrency.value },
+      toCurrency: { }
     }
   }
 

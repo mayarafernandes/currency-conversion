@@ -1,17 +1,34 @@
-<div>
-    <label>FROM:</label>
-    <select [(ngModel)]='conversion.fromCurrency.symbol'>
-        <option *ngFor="let symbol of globals.currencySymbols" [ngValue]="symbol">{{symbol}}</option>
-    </select>
-    <span>{{conversion.fromCurrency.symbol}}</span>    
-    <input [(ngModel)]='conversion.fromCurrency.value'/>
-</div>
-<div>
-    <label>TO:</label>
-    <select [(ngModel)]='conversion.toCurrency.symbol'>
-        <option *ngFor="let symbol of globals.currencySymbols" [ngValue]="symbol">{{symbol}}</option>
-    </select>
-    <span>{{conversion.toCurrency.symbol}}</span>
-    <input [ngModel]='conversion.toCurrency.value' disabled/>
-</div>
-<input type='button' (click)="onConvet()" value='CONVERT' />
+<mat-card class="card">
+    <div>
+        <h4>{{'from' | translate}}</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'currency' | translate}}</mat-label>
+            <mat-select [(value)]="conversion.fromCurrency.symbol">
+                <mat-option *ngFor="let symbol of globals.currencySymbols" [value]="symbol">
+                    {{symbol}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'value' | translate}}</mat-label>
+            <input type="number" matInput [(ngModel)]='conversion.fromCurrency.value'>
+        </mat-form-field>
+    </div>
+    <div>
+        <h4>{{'to' | translate}}</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'currency' | translate}}</mat-label>
+            <mat-select [(value)]="conversion.toCurrency.symbol">
+                <mat-option *ngFor="let symbol of globals.currencySymbols" [value]="symbol">
+                    {{symbol}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'value' | translate}}</mat-label>
+            <input type="number" matInput [(ngModel)]="conversion.toCurrency.value" readonly>
+        </mat-form-field>
+    </div>
+    <button class="button-convert" type="button" mat-raised-button color="primary"
+        (click)="onConvet()">{{'convert' | translate}}</button>
+</mat-card>

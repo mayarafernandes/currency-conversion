@@ -1,4 +1,4 @@
 export class Currency {
-    symbol: string;
+    symbol?: string;
     value?: number;
 }
