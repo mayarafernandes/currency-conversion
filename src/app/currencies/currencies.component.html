@@ -1,4 +1,4 @@
-<span>{{globals.currentCurrency.value | localizedCurrency:globals.currentCurrency.symbol}} {{'equals' | translate}}:</span>
+<span>{{globals.defaultCurrency.value | localizedCurrency:globals.defaultCurrency.symbol}} {{'equals' | translate}}:</span>
 <br><br>
 <div *ngFor="let currency of currencies">    
     <span>{{currency.value | localizedCurrency:currency.symbol}}</span>

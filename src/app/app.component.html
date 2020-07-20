@@ -6,8 +6,7 @@
         </a>
     </mat-icon>
 </mat-toolbar>
-<div style="text-align: center;">
-    <h2>{{message}}</h2>
+<div style="text-align: center;">    
     <h4>{{'chooseLanguage' | translate}}</h4>
     <mat-icon class="flag-icon" (click)="useLanguage('pt')">        
         <img src="../assets/img/flag-br.svg" />
@@ -19,7 +18,8 @@
         <img src="../assets/img/flag-gb.svg" />        
     </mat-icon>
     <br><br>
-    <app-conversion></app-conversion>
+    <app-conversion *ngIf="currentCurrency" [currentCurrency]="currentCurrency" (messageEvent)="receiveMessage($event)"></app-conversion>
     <br><br>
-    <app-currencies (messageEvent)="receiveMessage($event)"></app-currencies>
+    <h4 class="error-message">{{message}}</h4>
+    <app-currencies [defaultCurrencySymbol]="defaultCurrencySymbol" (messageEvent)="receiveMessage($event)"></app-currencies>
 </div>

@@ -7,5 +7,6 @@
     "value": "Value",
     "convert": "Convert",
     "chooseLanguage": "Choose a language",
-    "lastUpdated": "Last updated on"
+    "lastUpdated": "Last updated on",
+    "errorExceededLimit": "Reached fetch API limit, try again in later!"
 }

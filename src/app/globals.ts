@@ -3,6 +3,7 @@ import { Currency } from '../model/currency'
 
 @Injectable()
 export class Globals {
-    currencySymbols: string[] = ['BRL', 'USD', 'EUR', 'BTC'];
+    currencySymbols: string[] = [];
     currentCurrency: Currency = { };
+    defaultCurrency: Currency = { };
 }

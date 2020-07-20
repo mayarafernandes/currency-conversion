@@ -3,7 +3,7 @@
         <h4>{{'from' | translate}}</h4>
         <mat-form-field appearance="fill">
             <mat-label>{{'currency' | translate}}</mat-label>
-            <mat-select [(value)]="conversion.fromCurrency.symbol">
+            <mat-select [(value)]="currentCurrency.symbol">
                 <mat-option *ngFor="let symbol of globals.currencySymbols" [value]="symbol">
                     {{symbol}}
                 </mat-option>
@@ -11,7 +11,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>{{'value' | translate}}</mat-label>
-            <input type="number" matInput [(ngModel)]='conversion.fromCurrency.value'>
+            <input type="number" matInput [(ngModel)]='currentCurrency.value'>
         </mat-form-field>
     </div>
     <div>

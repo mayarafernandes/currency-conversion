@@ -7,5 +7,6 @@
     "value": "Valor",
     "convert": "Converter",
     "chooseLanguage": "Escolha um idioma",
-    "lastUpdated": "Última atualização em"
+    "lastUpdated": "Última atualização em",
+    "errorExceededLimit": "Limite de consulta à API atingido, tente novamente mais tarde!"
 }
